@@ -1,0 +1,128 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: white; */
+}
+nav{
+  background-color: bisque;
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  /* padding: 0px 20px; */
+}
+.nav-links{
+  display: flex;
+  gap: 20px;
+  list-style-type: none;
+  /* margin-left: auto; */
+  margin-right: 20px;
+}
+.nav-links li a{
+  text-decoration: none;
+  color:black;
+}
+.logo{
+  height: 70px;
+}
+
+.hero_section{
+  /* height: 88vh; */
+  height: auto;
+  width: 100%;
+  display: flex;
+}
+.left_hero{
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 65%;
+  /* border: 1px solid white; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 50px;
+  padding-left: 20px;
+}
+.item_card img{
+  height: 150px;
+  background-color: whitesmoke;
+}
+.item_card button{
+  border: 1.5px solid rgb(254, 146, 14);
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color:antiquewhite;
+  color: rgb(254, 146, 14);
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.item_card button:hover{
+  transform: scale(1.1) rotate(5deg);
+}
+.item_card h3, .item_card h4{
+  color:black;
+  font-weight: 500;
+}
+.item_card{
+  width: 200px;
+  /* height: 350px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* border: 1px solid black; */
+  padding: 10px;
+  border-radius: 10px;
+  background-color:bisque;
+  transition: all 0.3s ease-in-out;
+}
+.item_card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgb(238, 204, 161);
+}
+
+.right_hero{
+  width: 35%;
+  /* border: 1px solid white; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 30px;
+  border: 1px solid white;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.cart{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cart_item_row img{
+  height: 60px;
+  object-fit: contain;
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: whitesmoke;
+}
+.cart_item_row{
+  /* margin-top: 10px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: bisque;
+}
+.cart_item_row button{
+  border: 1.5px solid rgb(254, 146, 14);
+  padding: 5px;
+  border-radius: 5px;
+  background-color:antiquewhite;
+  color: rgb(254, 146, 14);
+  font-size: 20px;
+}
