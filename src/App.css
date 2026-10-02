@@ -12,6 +12,8 @@ nav{
   gap: 40px;
   align-items: center;
   /* padding: 0px 20px; */
+  /* position: fixed; */
+  /* margin-bottom: 80px; */
 }
 .nav-links{
   display: flex;
@@ -34,10 +36,10 @@ nav{
   width: 100%;
   display: flex;
 }
-.left_hero{
+.products_data{
   margin-left: 20px;
   margin-top: 20px;
-  width: 65%;
+  width: 50vw;
   /* border: 1px solid white; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -48,7 +50,7 @@ nav{
   height: 150px;
   background-color: whitesmoke;
 }
-.item_card button{
+.item_card button, .pay_but{
   border: 1.5px solid rgb(254, 146, 14);
   padding: 5px 10px;
   border-radius: 5px;
@@ -58,7 +60,7 @@ nav{
   transition: all 0.3s ease-in-out;
 }
 
-.item_card button:hover{
+.item_card button:hover, .pay_but:hover{
   transform: scale(1.1) rotate(5deg);
 }
 .item_card h3, .item_card h4{
@@ -85,17 +87,37 @@ nav{
 }
 
 .right_hero{
-  width: 35%;
+  width: 50vw;
   /* border: 1px solid white; */
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
   gap: 30px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
+  /* border-radius: 10px; */
   margin-right: 20px;
   margin-top: 20px;
+
 }
+.cart_items{
+  height: 40vh;
+  overflow-y: auto;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 8px;
+
+}
+
+/* .right_hero_cart{
+  height: 50vh;
+  overflow-y: auto;
+  /* overflow-x: auto; */
+  /* position:sticky;
+  width: 35%;
+  border: 1px solid white;
+  border-radius: 10px;
+} */ 
 .cart{
   display: flex;
   flex-direction: column;

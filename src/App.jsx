@@ -1,6 +1,8 @@
 
 import './App.css'
 import React, {useState} from 'react';
+import UserForm from './userForm/UserForm';
+
 function App() {
   
             const productsData = [
@@ -123,9 +125,10 @@ function App() {
       );
     });
   };
-              
+  const [isPlaying, setIsPlaying] = useState(false);        
+  const totalAmount = cart.reduce((total, item) => total + (item.price * item.quantity), 0); 
   return (
-    <body>
+    <>
       <header>
         <nav>
           <img src="/shoe_logo.avif" alt="Shoe Logo" className="logo" />
@@ -138,45 +141,60 @@ function App() {
       </header>
       <section className="hero_section">
         <section className="left_hero">
-          {productsData.map((product) => (
-            <div className="item_card" key={product.id}>
-              <img src={product.image} alt={product.name} />
-              <h3>{product.name}</h3>
-              <h4>₹{product.price}</h4>
-              <button className="add_to_cart" onClick={() => addCart(product)}>
-                Add Cart
-              </button>
-            </div>
-          ))}
+          
+            {isPlaying ? (
+              <UserForm
+                totalAmount={totalAmount}
+                onAmountSuccess={() => setIsPlaying(false)}
+              />
+            ) : (
+              <div className="products_data">
+                {productsData.map((product) => (
+                  <div className="item_card" key={product.id}>
+                    <img src={product.image} alt={product.name} />
+                    <h3>{product.name}</h3>
+                    <h4>₹{product.price}</h4>
+                    <button className="add_to_cart" onClick={() => addCart(product)}>
+                    Add Cart
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
         </section>
           
         
         <section className="right_hero">
-          <div className="cart">
-            <h3>Shopping Cart</h3>
-            <div className="cart_items">
-              {cart.map((item)=> (
-                <div className="cart_item_row" key={item.id}>
-                  <img src={item.image} alt={item.name} />
-                  <div className="cart_item_row_info">
-                    <span>{item.name}</span>
-                    <span>₹{item.price}</span>
+          <div className="right_hero_cart">
+            <div className="cart">
+              <h3>Shopping Cart</h3>
+              <div className="cart_items">
+                {cart.map((item)=> (
+                  <div className="cart_item_row" key={item.id}>
+                    <img src={item.image} alt={item.name} />
+                    <div className="cart_item_row_info">
+                      <span>{item.name}</span>
+                      <span>₹{item.price}</span>
+                    </div>
+                    <div className="cart_item_row_quantity">
+                      <button onClick={() => substQuantity(item.id)}>-</button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => addQuantity(item.id)}>+</button>
+                    </div>
                   </div>
-                  <div className="cart_item_row_quantity">
-                    <button onClick={() => substQuantity(item.id)}>-</button>
-                    <span>{item.quantity}</span>
-                    <button onClick={() => addQuantity(item.id)}>+</button>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+            <div className="t_price">
+              <h4>Total Price: ₹{cart.reduce((total, item) => total + (item.price * item.quantity), 0).toLocaleString()}</h4>
             </div>
           </div>
-          <div className="t_price">
-            <h4>Total Price: ₹{cart.reduce((total, item) => total + (item.price * item.quantity), 0).toLocaleString()}</h4>
-          </div>
+          <button className="pay_but" onClick={() => setIsPlaying(!isPlaying)}>
+            {isPlaying ? 'Back to Cart Items' : 'Proceed to Payment'}
+          </button>
         </section>
       </section>
-    </body>
+    </>
   )
 
 }
